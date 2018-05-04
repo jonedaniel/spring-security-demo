@@ -12,7 +12,7 @@
 5. 使用SpringSocial允许qq用户登陆  X 没有qq互联权限
 
 ## 备注
-1. 该项目基于springboot,没有xml配置。
+1. 该项目基于springboot。
 2. 创建 dev 数据库，将data.sql的数据写入。
 3. 如果报错连接错误,**请确认你的mysql与redis配置正确**
 4. 使用spring social登陆qq，请自行到qq互联申请配置
