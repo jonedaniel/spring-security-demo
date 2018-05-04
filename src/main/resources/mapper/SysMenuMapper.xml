@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.testcase.plaintest.security.mapper.SysMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.testcase.plaintest.security.domain.SysMenu" >
+    <id column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="p_id" property="pId" />
+    <result column="url" property="url" />
+    <result column="order_num" property="orderNum" />
+    <result column="icon" property="icon" />
+    <result column="create_by" property="createBy" />
+    <result column="create_date" property="createDate" />
+    <result column="update_by" property="updateBy" />
+    <result column="update_date" property="updateDate" />
+    <result column="permission" property="permission" />
+    <result column="menu_type" property="menuType" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from `sys_menu`
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.testcase.plaintest.security.domain.SysMenu" useGeneratedKeys="true" keyProperty="id" >
+    insert into `sys_menu` (name, p_id, url, order_num, icon, create_by, create_date, 
+      update_by, update_date, permission, menu_type)
+    values (#{name}, #{pId}, #{url}, #{orderNum}, #{icon}, #{createBy}, #{createDate}, 
+      #{updateBy}, #{updateDate}, #{permission}, #{menuType})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.testcase.plaintest.security.domain.SysMenu" >
+    update `sys_menu`
+    set name = #{name},
+      p_id = #{pId},
+      url = #{url},
+      order_num = #{orderNum},
+      icon = #{icon},
+      create_by = #{createBy},
+      create_date = #{createDate},
+      update_by = #{updateBy},
+      update_date = #{updateDate},
+      permission = #{permission},
+      menu_type = #{menuType}
+    where id = #{id}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, name, p_id, url, order_num, icon, create_by, create_date, update_by, update_date, 
+    permission, menu_type
+    from `sys_menu`
+    where id = #{id}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, name, p_id, url, order_num, icon, create_by, create_date, update_by, update_date, 
+    permission, menu_type
+    from `sys_menu`
+  </select>
+</mapper>

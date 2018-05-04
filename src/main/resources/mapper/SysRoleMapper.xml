@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.testcase.plaintest.security.mapper.SysRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.testcase.plaintest.security.domain.SysRole" >
+    <id column="id" property="id" />
+    <result column="role_name" property="roleName" />
+    <result column="remark" property="remark" />
+    <result column="create_by" property="createBy" />
+    <result column="create_date" property="createDate" />
+    <result column="update_by" property="updateBy" />
+    <result column="update_date" property="updateDate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from `sys_role`
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.testcase.plaintest.security.domain.SysRole" useGeneratedKeys="true" keyProperty="id" >
+    insert into `sys_role` (role_name, remark, create_by, create_date, update_by, update_date
+      )
+    values (#{roleName}, #{remark}, #{createBy}, #{createDate}, #{updateBy}, #{updateDate}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.testcase.plaintest.security.domain.SysRole" >
+    update `sys_role`
+    set role_name = #{roleName},
+      remark = #{remark},
+      create_by = #{createBy},
+      create_date = #{createDate},
+      update_by = #{updateBy},
+      update_date = #{updateDate}
+    where id = #{id}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, role_name, remark, create_by, create_date, update_by, update_date
+    from `sys_role`
+    where id = #{id}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, role_name, remark, create_by, create_date, update_by, update_date
+    from `sys_role`
+  </select>
+</mapper>
