@@ -39,7 +39,7 @@ public class IndexController {
     }
 
     @GetMapping("/home/{username}")
-    public String home(@PathVariable("username") String username)throws Exception {
+    public String home(@PathVariable("username")String username)throws Exception {
         return "home";
     }
 

@@ -18,7 +18,7 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
         log.warn(">>> 登陆失败： "+"username:"+request.getParameter("username")+",password:"+request.getParameter("password"));
         log.warn(">>> ip："+getIpAddress(request));
-        response.sendRedirect("/home?username="+request.getParameter("username"));
+        response.sendRedirect("/home/"+request.getParameter("username"));
     }
         private String getIpAddress(HttpServletRequest request) {
             String ip = request.getHeader("x-forwarded-for");

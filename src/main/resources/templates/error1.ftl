@@ -8,9 +8,6 @@
 <h1>this is homePage</h1>
 <a href="/index">index</a>
 <a href="/logout">logout</a><br>
-
-<#if username??>
-    ${username}你好，登陆错误。
-</#if>
+${username!""}你好，登陆失败
 </body>
 </html>
