@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collection;
 
 public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
@@ -24,10 +25,11 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
         //输出登录提示信息
         log.warn("用户 " + user.getUsername() + " 登录，" + "IP :" + getIpAddress(request));
         log.warn("authorities:" + authorities);
-
-//        if (!response.isCommitted()) {
-//            response.sendRedirect("/page1");
-//        }
+        response.setStatus(200);
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("json");
+        PrintWriter writer = response.getWriter();
+        writer.write("登录成功");
         super.onAuthenticationSuccess(request, response, authentication);
     }
 

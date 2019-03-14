@@ -1,10 +1,10 @@
-MyIP: 127.0.0.1
+MyIP: 39.105.96.199
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://${MyIP}:3306/dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://${MyIP}:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
-    password: admin
+    password: l623299342
   redis:
     host: ${MyIP}
     port: 6379
